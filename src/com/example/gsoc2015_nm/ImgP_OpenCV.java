@@ -24,11 +24,12 @@ import android.view.SubMenu;
 import android.widget.ImageView;
 
 public class ImgP_OpenCV extends ActionBarActivity {
-    static ImageView picture;
-    static String pic_path;
-    static String pic_modify_name = "ProcessPic";
+    //Setting variables
+	static ImageView picture;
+    static String pic_path; //original pic path
+    static String pic_modify_name = "ProcessPic"; //path to image modified 1
     static String pic_modify_path = null;
-    static String pic_modify_Undoname = "ProcessPic2";
+    static String pic_modify_Undoname = "ProcessPic2"; //path to image modified 2
     static String pic_modify_Undopath = null;
     static Bitmap pic1 = null;
     
@@ -82,7 +83,6 @@ public class ImgP_OpenCV extends ActionBarActivity {
 		
 		//Set ImageView Image//
 		picture = (ImageView) this.findViewById(R.id.Img_OCV_1);
-        //pic_path = TakePic.PhotoPath;
 		Log.i(TAG, "Main List options Pic PATH::: " + MainListOptions.picPath);
 		
 		//GET MAIN PICTURE
@@ -108,9 +108,11 @@ public class ImgP_OpenCV extends ActionBarActivity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.img_p__open_cv, menu);
 	        Log.i(TAG, "called onCreateOptionsMenu");
+	        //add subMenu
 	        mFilter = menu.addSubMenu("Filter");
 	        mMorphology = menu.addSubMenu("Morphology");
 	        mColorOp = menu.addSubMenu("ColorFilters");
+	        //add Menu items
 	        mItemPreviewGetR = mColorOp.add("Channel R");
 	        mItemPreviewGetG = mColorOp.add("Channel G");
 	        mItemPreviewGetB = mColorOp.add("Channel B");
@@ -431,7 +433,7 @@ public class ImgP_OpenCV extends ActionBarActivity {
         OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_3, this, mLoaderCallback);
     }
     
-    }
+}
     
     
     

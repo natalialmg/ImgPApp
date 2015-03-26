@@ -41,18 +41,15 @@ public class TakePic extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.takepic_layout);
+        
         Log.i(TAG,"On Create_TakePic");
-        //mImageView = (ImageView) this.findViewById(R.id.imageView);
         Log.i(TAG,"  PhotoPath Init: " + PhotoPath );
         if (PhotoPath != null){
             Log.i(TAG,"Photo File Absolute Path" + PhotoPath);
              setPic();
         }
-
-        //if (PhotoPath!=null){
-        //    setPic();
-        //}
-        // BACK BUTTON
+        
+        //Back Done menu button
         Button backButton = (Button) findViewById(R.id.backmenu);
         backButton.setOnClickListener(new OnClickListener() {
 
@@ -118,10 +115,6 @@ public class TakePic extends Activity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
-            // Bundle extras = data.getExtras();
-            //Bitmap imageBitmap = (Bitmap) extras.get("data");
-            //mImageView.setImageBitmap(imageBitmap);
-            //galleryAddPic();
             setPic();
             Log.i(TAG,"Cam Result");
         }
@@ -134,8 +127,6 @@ public class TakePic extends Activity {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "IMG_" + timeStamp;
         Log.i(TAG,"String-FILE");
-        //File storageDir = Environment.getExternalStorageDirectory();
-        //        Environment.DIRECTORY_PICTURES);
         File storageDir = new File(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES), "MyCameraApp");
         // Create the storage directory if it does not exist
@@ -147,26 +138,16 @@ public class TakePic extends Activity {
             }
         }
 
-        Log.i(TAG,"FILE-FILE");
-       // File storageDir = Environment.getExternalStorageDirectory()
-        /*File image = File.createTempFile(
-                imageFileName,  /* prefix */
-      //       ".jpg",         /* suffix */
-     //         storageDir      /* directory */
-        //);
+        //File image
         File image = new File(storageDir.getPath() + File.separator +
                 "IMG_"+ timeStamp + ".jpg");
 
-        // Save a file: path for use with ACTION_VIEW intents
-        //mCurrentPhotoPath = "file:" + image.getAbsolutePath();
-        //mCurrentPhotoPath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+imageFileName;
         return image;
     }
 
     private void galleryAddPic() {
         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         Log.i(TAG,"Gallery Add PIC");
-        //Log.i(TAG,mCurrentPhotoPath);
 
         File f = new File(mCurrentPhotoPath);
         Uri contentUri = Uri.fromFile(f);
@@ -202,10 +183,8 @@ public class TakePic extends Activity {
         bmOptions.inPurgeable = true;
 
         Bitmap bitmap = BitmapFactory.decodeFile(PhotoPath,bmOptions);
-        //int width = bitmap.getWidth();
         mImageView.setImageBitmap(bitmap);
-
-        Log.i(TAG, "SET PIC   " + targetH);
+        Log.i(TAG, " DONE SET PIC   ");
     }
 
     public void onStart() {

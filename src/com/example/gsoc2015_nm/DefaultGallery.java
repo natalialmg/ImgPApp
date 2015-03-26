@@ -14,19 +14,25 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class DefaultGallery extends ActionBarActivity {
-String TAG = "GALLERY";
-static ImageView mImageView;
-public static String photoPath = null;
-static String sampleName = "sampleG";
-Bitmap image1 = null;
-	@Override
+
+	//Variables
+	String TAG = "GALLERY";
+	static ImageView mImageView;
+	public static String photoPath = null;
+	static String sampleName = "sampleG";
+	Bitmap image1 = null;
+	
+
+@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		//Set content
 		setContentView(R.layout.activity_default_gallery);
 		mImageView = (ImageView) this.findViewById(R.id.imgGallery);
 		
 		
-        // IMG1 Button
+        // IMG1 Button//
         Button Img1Button = (Button) findViewById(R.id.buttImg1);
         Img1Button.setOnClickListener(new OnClickListener() {
 
@@ -40,7 +46,7 @@ Bitmap image1 = null;
             }
         });       
         
-        // IMG2 Button
+        // IMG2 Button//
         Button Img2Button = (Button) findViewById(R.id.buttImg2);
         Img2Button.setOnClickListener(new OnClickListener() {
 
@@ -54,7 +60,7 @@ Bitmap image1 = null;
             }
         });
         
-        // IMG3 Button
+        // IMG3 Button//
         Button Img3Button = (Button) findViewById(R.id.buttImg3);
         Img3Button.setOnClickListener(new OnClickListener() {
 
@@ -69,14 +75,14 @@ Bitmap image1 = null;
         });
 				
 		
-        // BACK BUTTON
+        // BACK BUTTON//
         Button backButton = (Button) findViewById(R.id.buttDone1);
         backButton.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Log.i(TAG,"Vuelvo al menú");
-                //If IMAGE save to process
+                //If IMAGE exist save to process//
                 if (image1 != null){
                 	photoPath = PicUtils.saveToFile(image1, sampleName);
                 	MainListOptions.picPath = photoPath;
@@ -85,26 +91,7 @@ Bitmap image1 = null;
                 finish();
             }
         });
-        
-        
+               
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.default_gallery, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 }
