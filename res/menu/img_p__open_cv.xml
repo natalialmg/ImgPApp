@@ -1,0 +1,38 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.gsoc2015_nm.ImgP_OpenCV" >
+    
+     
+    <item
+        android:id="@+id/fileOptions"
+        app:showAsAction="ifRoom|withText"
+        android:title="@string/fileOptions">
+        <menu>
+    	<item
+        	android:id="@+id/save"
+        	android:orderInCategory="100"
+        	android:title="@string/save"
+        	app:showAsAction="ifRoom|withText"/>
+    
+    	<item
+        	android:id="@+id/undoP"
+        	android:orderInCategory="100"
+        	android:title="@string/UndoP"
+        	app:showAsAction="ifRoom|withText"/>
+    	<item
+        	android:id="@+id/resetP"
+        	android:orderInCategory="100"
+        	android:title="@string/ResetP"
+        	app:showAsAction="ifRoom|withText"/>
+    	
+		</menu>
+	</item>
+	
+    <item
+        	android:id="@+id/DoneP"
+        	android:orderInCategory="100"
+        	android:title="@string/backP"
+        	app:showAsAction="ifRoom|withText"/>
+
+</menu>

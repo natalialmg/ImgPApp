@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GSoC2015_NM</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="TakePic">Take Picture</string>
+    <string name="title_activity_process_img_options">PImg</string>
+    <string name="menu_procImg">Process</string>
+    <string name="menu_reset">Reset</string>
+    <string name="menu_back">Undo</string>
+    <string name="Filters">Filters</string>
+    <string name="EdgeDet">EdgeDetector_Sobel</string>
+    <string name="MedianFilter">Median</string>
+    <string name="title_activity_img_p__open_cv">ImgP_OpenCV</string>
+    <string name="save">save</string>
+    <string name="UndoP">undo</string>
+    <string name="ResetP">reset</string>
+    <string name="fileOptions">File</string>
+    <string name="camara">camera</string>
+    <string name="backP">Back</string>
+    <string name="title_activity_default_gallery">Samples</string>
+
+</resources>
